@@ -1,6 +1,6 @@
 // Header shrink on scroll
 const header = document.getElementById('site-header');
-if(header){
+if (header) {
   const toggleHeaderState = () => {
     header.classList.toggle('scrolled', window.scrollY > 12);
   };
@@ -11,10 +11,10 @@ if(header){
 
 // Brand logo intro animation (once per session)
 const logo = document.querySelector('header .logo');
-if(logo){
+if (logo) {
   const hasPlayedLogoIntro = sessionStorage.getItem('swcLogoIntroPlayed');
 
-  if(hasPlayedLogoIntro){
+  if (hasPlayedLogoIntro) {
     logo.classList.add('is-ready');
   } else {
     requestAnimationFrame(() => {
@@ -30,37 +30,37 @@ if(logo){
 
 // Reveal on scroll
 const reveals = document.querySelectorAll('.reveal');
-const io = new IntersectionObserver((entries)=>{
-  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
-}, { threshold:.15 });
-reveals.forEach(el=>io.observe(el));
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+}, { threshold: .15 });
+reveals.forEach(el => io.observe(el));
 
 // Process tabs (Process page)
-document.querySelectorAll('.tab-btn').forEach(btn=>{
-  btn.addEventListener('click', ()=>{
-    document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
-    document.querySelectorAll('.process-track').forEach(t=>t.classList.remove('active'));
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.process-track').forEach(t => t.classList.remove('active'));
     btn.classList.add('active');
     document.querySelector(`.process-track[data-track="${btn.dataset.tab}"]`).classList.add('active');
   });
 });
 
 // Gallery filter (Gallery page)
-document.querySelectorAll('.filter-btn').forEach(btn=>{
-  btn.addEventListener('click', ()=>{
-    document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
     const f = btn.dataset.filter;
-    document.querySelectorAll('.gallery-item').forEach(item=>{
+    document.querySelectorAll('.gallery-item').forEach(item => {
       item.classList.toggle('hide', f !== 'all' && item.dataset.cat !== f);
     });
   });
 });
 
 // Segmented control (Contact page)
-document.querySelectorAll('.seg-opt').forEach(opt=>{
-  opt.addEventListener('click', ()=>{
-    document.querySelectorAll('.seg-opt').forEach(o=>o.classList.remove('checked'));
+document.querySelectorAll('.seg-opt').forEach(opt => {
+  opt.addEventListener('click', () => {
+    document.querySelectorAll('.seg-opt').forEach(o => o.classList.remove('checked'));
     opt.classList.add('checked');
     opt.querySelector('input').checked = true;
   });
@@ -70,11 +70,11 @@ document.querySelectorAll('.seg-opt').forEach(opt=>{
 const contactForm = document.getElementById('contact-form');
 const formStatus = document.getElementById('form-status');
 
-if(contactForm && formStatus){
-  contactForm.addEventListener('submit', async (event)=>{
+if (contactForm && formStatus) {
+  contactForm.addEventListener('submit', async (event) => {
     event.preventDefault();
 
-    if(!contactForm.checkValidity()){
+    if (!contactForm.checkValidity()) {
       contactForm.reportValidity();
       return;
     }
@@ -82,13 +82,13 @@ if(contactForm && formStatus){
     const submitButton = contactForm.querySelector('button[type="submit"]');
     const endpoint = contactForm.getAttribute('action');
 
-    if(!endpoint || endpoint.trim() === '' || endpoint.trim() === 'YOUR_FORMSPREE_ENDPOINT'){
+    if (!endpoint || endpoint.trim() === '' || endpoint.trim() === 'YOUR_FORMSPREE_ENDPOINT') {
       formStatus.textContent = 'Formspree endpoint is not configured yet. Please add the Formspree endpoint to the form action.';
       formStatus.className = 'form-status error';
       return;
     }
 
-    if(submitButton){
+    if (submitButton) {
       submitButton.disabled = true;
       submitButton.textContent = 'Sending...';
     }
@@ -103,7 +103,7 @@ if(contactForm && formStatus){
         }
       });
 
-      if(!response.ok){
+      if (!response.ok) {
         throw new Error('Request failed');
       }
 
@@ -111,21 +111,77 @@ if(contactForm && formStatus){
       formStatus.className = 'form-status success';
       contactForm.reset();
 
-      document.querySelectorAll('.seg-opt').forEach(o=>o.classList.remove('checked'));
+      document.querySelectorAll('.seg-opt').forEach(o => o.classList.remove('checked'));
       const homeOpt = document.querySelector('#seg-home');
-      if(homeOpt){
+      if (homeOpt) {
         homeOpt.classList.add('checked');
         const radio = homeOpt.querySelector('input[type="radio"]');
-        if(radio){ radio.checked = true; }
+        if (radio) { radio.checked = true; }
       }
     } catch (error) {
       formStatus.textContent = 'There was a problem sending your enquiry. Please try again.';
       formStatus.className = 'form-status error';
     } finally {
-      if(submitButton){
+      if (submitButton) {
         submitButton.disabled = false;
         submitButton.textContent = 'Send Inquiry';
       }
     }
   });
 }
+
+// Mobile navigation drawer controller
+(function() {
+  const navToggle = document.getElementById('nav-toggle');
+  const navClose = document.getElementById('nav-close');
+  const navBackdrop = document.getElementById('nav-backdrop');
+  const navMenu = document.getElementById('site-nav');
+
+  if (navToggle) {
+    const openMenu = () => {
+      document.body.classList.add('nav-open');
+      navToggle.setAttribute('aria-expanded', 'true');
+    };
+
+    const closeMenu = () => {
+      document.body.classList.remove('nav-open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    };
+
+    navToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (document.body.classList.contains('nav-open')) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
+    });
+
+    if (navClose) {
+      navClose.addEventListener('click', closeMenu);
+    }
+
+    if (navBackdrop) {
+      navBackdrop.addEventListener('click', closeMenu);
+    }
+
+    if (navMenu) {
+      navMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', closeMenu);
+      });
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && document.body.classList.contains('nav-open')) {
+        closeMenu();
+      }
+    });
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth >= 1062 && document.body.classList.contains('nav-open')) {
+        closeMenu();
+      }
+    });
+  }
+})();
+

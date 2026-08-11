@@ -1,103 +1,166 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact Us — SWCfurnitures</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,450;0,9..144,600;1,9..144,450&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us — SWCfurnitures</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,450;0,9..144,600;1,9..144,450&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css?v=5">
 </head>
+
 <body>
-<header id="site-header">
-  <div class="wrap">
-    <a href="../index.html" class="logo" aria-label="SWCfurnitures home"><b>SWC</b>furnitures</a>
-    <nav><ul>
-      <li><a href="../about/about.html">About</a></li>
-      <li><a href="../homeowners/homeowners.html">Homes</a></li>
-      <li><a href="../builders/builders.html">Builders</a></li>
-      <li><a href="../gallery/gallery.html">Gallery</a></li>
-      <li><a href="../materials/materials.html">Materials</a></li>
-      <li><a href="../process/process.html">Process</a></li>
-      <li><a href="../testimonials/testimonials.html">Testimonials</a></li>
-      <li><a href="contact.html" class="current">Contact</a></li>
-    </ul></nav>
-    <div class="header-cta">
-      <a href="contact.html" class="btn ghost">Discuss a Project</a>
+  <header id="site-header">
+    <div class="wrap">
+      <a href="../index.html" class="logo" aria-label="SWCfurnitures home"><b>SWC</b>furnitures</a>
+      <nav id="site-nav">
+        <button class="nav-close" id="nav-close" aria-label="Close navigation" type="button">&times;</button>
+        <ul>
+          <li><a href="../about/about.html">About</a></li>
+          <li><a href="../homeowners/homeowners.html">Homes</a></li>
+          <li><a href="../builders/builders.html">Builders</a></li>
+          <li><a href="../gallery/gallery.html">Gallery</a></li>
+          <li><a href="../materials/materials.html">Materials</a></li>
+          <li><a href="../process/process.html">Process</a></li>
+          <li><a href="../testimonials/testimonials.html">Testimonials</a></li>
+          <li><a href="contact.html" class="current">Contact</a></li>
+        </ul>
+        <div class="mobile-cta-wrap">
+          <a href="contact.html" class="btn">Discuss a Project</a>
+        </div>
+      </nav>
+      <div class="header-cta">
+        <a href="contact.html" class="btn ghost">Discuss a Project</a>
+      </div>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="site-nav">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
     </div>
-  </div>
-</header>
+  </header>
+  <div class="nav-backdrop" id="nav-backdrop"></div>
 
-<section class="page-hero">
-  <div class="wrap reveal">
-    <p class="crumb"><a href="../index.html">Home</a> / Contact Us</p>
-    <p class="eyebrow">Contact Us</p>
-    <h1>Tell us about your project.</h1>
-    <p class="lede">Fill this in and we'll get back to you within 24 hours — no obligation, no pricing pressure.</p>
-  </div>
-</section>
+  <section class="page-hero">
+    <div class="wrap reveal">
+      <p class="crumb"><a href="../index.html">Home</a> / Contact Us</p>
+      <p class="eyebrow">Contact Us</p>
+      <h1>Tell us about your project.</h1>
+      <p class="lede">Fill this in and we'll get back to you within 24 hours — no obligation, no pricing pressure.</p>
+    </div>
+  </section>
 
-<section class="section">
-  <div class="wrap contact-wrap">
-    <div>
-      <form class="reveal" id="contact-form" action="https://formspree.io/f/xzepelyj" method="POST">
-        <div class="segmented">
-          <label class="seg-opt checked" id="seg-home"><input type="radio" name="who" value="Homeowner" checked>I'm a Homeowner</label>
-          <label class="seg-opt" id="seg-build"><input type="radio" name="who" value="Builder / Contractor">I'm a Builder / Contractor</label>
-        </div>
-        <div class="row2">
-          <div class="field"><label for="name">Name</label><input type="text" id="name" name="name" placeholder="Your name" required></div>
-          <div class="field"><label for="email">Email</label><input type="email" id="email" name="email" placeholder="your@email.com" required></div>
-        </div>
-        <div class="row2">
-          <div class="field"><label for="phone">Phone</label><input type="tel" id="phone" name="phone" placeholder="+91" required></div>
-          <div class="field"><label for="service">Type of Work</label>
-            <select id="service" name="service" required>
-              <option value="" selected disabled>Select a service</option>
-              <option value="Beds & Wardrobes">Beds &amp; Wardrobes</option>
-              <option value="Modular Kitchen">Modular Kitchen</option>
-              <option value="Full Home Interiors">Full Home Interiors</option>
-              <option value="Doors & Windows (Building)">Doors &amp; Windows (Building)</option>
-              <option value="Full Building Contract">Full Building Contract</option>
-              <option value="Other">Other</option>
-            </select>
+  <section class="section">
+    <div class="wrap contact-wrap">
+      <div>
+        <form class="reveal" id="contact-form" action="https://formspree.io/f/xzepelyj" method="POST">
+          <div class="segmented">
+            <label class="seg-opt checked" id="seg-home"><input type="radio" name="who" value="Homeowner" checked>I'm a
+              Homeowner</label>
+            <label class="seg-opt" id="seg-build"><input type="radio" name="who" value="Builder / Contractor">I'm a
+              Builder / Contractor</label>
+          </div>
+          <div class="row2">
+            <div class="field"><label for="name">Name</label><input type="text" id="name" name="name"
+                placeholder="Your name" required></div>
+            <div class="field"><label for="email">Email</label><input type="email" id="email" name="email"
+                placeholder="your@email.com" required></div>
+          </div>
+          <div class="row2">
+            <div class="field"><label for="phone">Phone</label><input type="tel" id="phone" name="phone"
+                placeholder="+91" required></div>
+            <div class="field"><label for="service">Type of Work</label>
+              <select id="service" name="service" required>
+                <option value="" selected disabled>Select a service</option>
+                <option value="Beds & Wardrobes">Beds &amp; Wardrobes</option>
+                <option value="Modular Kitchen">Modular Kitchen</option>
+                <option value="Full Home Interiors">Full Home Interiors</option>
+                <option value="Doors & Windows (Building)">Doors &amp; Windows (Building)</option>
+                <option value="Full Building Contract">Full Building Contract</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+          </div>
+          <div class="field"><label for="message">A little about your project</label><textarea id="message"
+              name="message" rows="4"
+              placeholder="Site size, number of units, or anything that helps us understand your need"
+              required></textarea></div>
+          <div class="field"><label for="attachment">Photo or Plan (optional)</label><input type="file" id="attachment"
+              name="attachment"></div>
+          <button class="btn" type="submit" style="align-self:flex-start">Send Inquiry</button>
+          <p class="promise">We respond within 24 hours.</p>
+          <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+
+      <div class="contact-side reveal">
+        <div class="item">
+          <div class="ic">☎</div>
+          <div>
+            <h3>Call Us</h3>
+            <p>+91 98106 67561</p>
           </div>
         </div>
-        <div class="field"><label for="message">A little about your project</label><textarea id="message" name="message" rows="4" placeholder="Site size, number of units, or anything that helps us understand your need" required></textarea></div>
-        <div class="field"><label for="attachment">Photo or Plan (optional)</label><input type="file" id="attachment" name="attachment"></div>
-        <button class="btn" type="submit" style="align-self:flex-start">Send Inquiry</button>
-        <p class="promise">We respond within 24 hours.</p>
-        <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
-      </form>
+        <div class="item">
+          <div class="ic">✆</div>
+          <div>
+            <h3>WhatsApp</h3>
+            <p>Send photos of your space directly</p>
+          </div>
+        </div>
+        <div class="item">
+          <div class="ic">✉</div>
+          <div>
+            <h3>Email Us</h3>
+            <p><a href="mailto:swcfurnitures@gmail.com">swcfurnitures@gmail.com</a></p>
+          </div>
+        </div>
+        <div class="item">
+          <div class="ic">⌂</div>
+          <div>
+            <h3>Workshop</h3>
+            <p>C-49, Block D, Dabri Extension East</p>
+          </div>
+        </div>
+        <a href="https://maps.app.goo.gl/yZVuVApDzPZk4Pqi8?g_st=aw" class="map-ph" target="_blank"
+          rel="noopener noreferrer" aria-label="Open workshop location on Google Maps"></a>
+      </div>
     </div>
+  </section>
 
-    <div class="contact-side reveal">
-      <div class="item"><div class="ic">☎</div><div><h3>Call Us</h3><p>+91 98106 67561</p></div></div>
-      <div class="item"><div class="ic">✆</div><div><h3>WhatsApp</h3><p>Send photos of your space directly</p></div></div>
-      <div class="item"><div class="ic">⌂</div><div><h3>Workshop</h3><p>C-49, Block D, Dabri Extension East</p></div></div>
-      <a href="https://maps.app.goo.gl/yZVuVApDzPZk4Pqi8?g_st=aw" class="map-ph" target="_blank" rel="noopener noreferrer" aria-label="Open workshop location on Google Maps"></a>
+  <footer>
+    <div class="wrap">
+      <div>
+        <div class="logo">SWCfurnitures</div>
+        <p style="margin-top:10px; font-size:.8rem; max-width:32ch;">Fine woodwork for homes and buildings, since 1999.
+        </p>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="../about/about.html">About</a></li>
+          <li><a href="../homeowners/homeowners.html">Homes</a></li>
+          <li><a href="../builders/builders.html">Builders</a></li>
+          <li><a href="../gallery/gallery.html">Gallery</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
     </div>
-  </div>
-</section>
+    <div class="wrap bottom-line"><span>© 2026 SWCfurnitures. All rights reserved.</span><span>Built with care, not
+        templates.</span></div>
+  </footer>
 
-<footer>
-  <div class="wrap">
-    <div><div class="logo">SWCfurnitures</div><p style="margin-top:10px; font-size:.8rem; max-width:32ch;">Fine woodwork for homes and buildings, since 2007.</p></div>
-    <nav><ul>
-      <li><a href="../about/about.html">About</a></li>
-      <li><a href="../homeowners/homeowners.html">Homes</a></li>
-      <li><a href="../builders/builders.html">Builders</a></li>
-      <li><a href="../gallery/gallery.html">Gallery</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul></nav>
-  </div>
-  <div class="wrap bottom-line"><span>© 2026 SWCfurnitures. All rights reserved.</span><span>Built with care, not templates.</span></div>
-</footer>
-
-<a href="https://wa.me/919810667561" class="float-wa" aria-label="Chat on WhatsApp" title="Chat on WhatsApp" target="_blank" rel="noopener noreferrer">
-  <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.7.44 3.36 1.29 4.82L2 22l5.42-1.42a9.9 9.9 0 0 0 4.62 1.18h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.86 9.86 0 0 0 12.04 2m0 1.67a8.2 8.2 0 0 1 5.83 2.42 8.19 8.19 0 0 1 2.41 5.82c0 4.55-3.7 8.24-8.25 8.24a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.17 8.17 0 0 1-1.26-4.38c0-4.55 3.7-8.24 8.25-8.24M8.53 6.87c-.16 0-.43.06-.66.31-.22.25-.87.85-.87 2.07 0 1.22.89 2.4 1.01 2.56.13.17 1.75 2.8 4.3 3.83 2.13.86 2.57.69 3.03.65.47-.04 1.5-.61 1.71-1.2.21-.59.21-1.09.15-1.2-.06-.11-.24-.17-.5-.3-.26-.13-1.5-.74-1.74-.83-.23-.08-.4-.13-.57.13-.17.25-.65.83-.8 1-.15.17-.29.19-.55.06-.26-.13-1.08-.4-2.06-1.27-.76-.68-1.28-1.51-1.43-1.77-.15-.25-.02-.39.11-.51.11-.11.26-.29.38-.44.13-.15.17-.25.26-.42.08-.17.04-.31-.02-.44-.06-.13-.57-1.4-.79-1.91-.2-.5-.42-.43-.57-.43z"/></svg>
-</a>
-<script src="../assets/js/main.js"></script>
+  <a href="https://wa.me/919810667561" class="float-wa" aria-label="Chat on WhatsApp" title="Chat on WhatsApp"
+    target="_blank" rel="noopener noreferrer">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
+      <path
+        d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.7.44 3.36 1.29 4.82L2 22l5.42-1.42a9.9 9.9 0 0 0 4.62 1.18h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.86 9.86 0 0 0 12.04 2m0 1.67a8.2 8.2 0 0 1 5.83 2.42 8.19 8.19 0 0 1 2.41 5.82c0 4.55-3.7 8.24-8.25 8.24a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.17 8.17 0 0 1-1.26-4.38c0-4.55 3.7-8.24 8.25-8.24M8.53 6.87c-.16 0-.43.06-.66.31-.22.25-.87.85-.87 2.07 0 1.22.89 2.4 1.01 2.56.13.17 1.75 2.8 4.3 3.83 2.13.86 2.57.69 3.03.65.47-.04 1.5-.61 1.71-1.2.21-.59.21-1.09.15-1.2-.06-.11-.24-.17-.5-.3-.26-.13-1.5-.74-1.74-.83-.23-.08-.4-.13-.57.13-.17.25-.65.83-.8 1-.15.17-.29.19-.55.06-.26-.13-1.08-.4-2.06-1.27-.76-.68-1.28-1.51-1.43-1.77-.15-.25-.02-.39.11-.51.11-.11.26-.29.38-.44.13-.15.17-.25.26-.42.08-.17.04-.31-.02-.44-.06-.13-.57-1.4-.79-1.91-.2-.5-.42-.43-.57-.43z" />
+    </svg>
+  </a>
+  <script src="../assets/js/main.js?v=5"></script>
 </body>
+
 </html>
